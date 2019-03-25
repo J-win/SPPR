@@ -10,6 +10,7 @@ namespace SPPR
     {
         protected abstract double Rfunc(Point lp, Point rp, double m);
         protected abstract double searchxk(Interval zk, double m);
+        protected abstract bool bv(double r, double l, double ee, int k, int n);
 
         public MinPoint minSearch(LinkList p, double a, double b, double ee, int n, double r, Func<double, double> f)
         {
@@ -53,7 +54,7 @@ namespace SPPR
 
                 k++;
 
-            } while ((zk.rp.x - zk.lp.x > ee) && (k < n));
+            } while (bv(zk.rp.x, zk.lp.x, ee, k, n));
 
             MinPoint minp = new MinPoint(p.Min(), k, zk.rp.x - zk.lp.x);
 

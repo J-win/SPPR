@@ -19,5 +19,10 @@ namespace SPPR
         {
             return (0.5 * (zk.rp.x + zk.lp.x) - ((zk.rp.z - zk.lp.z) / (2.0 * m)));
         }
+
+        protected override bool bv(double r, double l, double ee, int k, int n)
+        {
+            return ((r - l > ee) && (k < n));
+        }
     }
 }

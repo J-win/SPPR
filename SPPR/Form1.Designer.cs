@@ -46,6 +46,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,9 +149,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(12, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(333, 25);
+            this.label3.Size = new System.Drawing.Size(339, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Функция: a*sin(b*x) + c*sin(d*x)";
+            this.label3.Text = "Функция: a*sin(b*x) + c*cos(d*x)";
             // 
             // label4
             // 
@@ -223,7 +223,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(60, 22);
             this.textBox4.TabIndex = 15;
-            this.textBox4.Text = "3,3333";
+            this.textBox4.Text = "1,0";
             // 
             // groupBox1
             // 
@@ -238,6 +238,15 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Справка";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 94);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 20);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "ee = ";
             // 
             // label8
             // 
@@ -337,15 +346,6 @@
             this.textBox9.Size = new System.Drawing.Size(60, 22);
             this.textBox9.TabIndex = 26;
             this.textBox9.Text = "7,5";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 94);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 20);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "ee = ";
             // 
             // Form1
             // 
