@@ -20,7 +20,7 @@ namespace SPPR
 
         protected override bool bv(double r, double l, double ee, int k, int n)
         {
-            return (k < n);
+            return ((r - l > ee) && (k < n));
         }
     }
 }

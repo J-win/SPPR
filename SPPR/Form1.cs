@@ -44,8 +44,6 @@ namespace SPPR
 
                 MinPoint minp = metod.minSearch(p, a, b, ee, n, r, f);
 
-                p.art(zedGraphControl1);
-
                 label1.Text = "Min x = " + Convert.ToString(minp.x);
                 label2.Text = "Min z = " + Convert.ToString(minp.z);
                 label8.Text = "n = " + Convert.ToString(minp.k);
@@ -58,7 +56,17 @@ namespace SPPR
 
                 MinPoint minp = metod.minSearch(p, a, b, ee, n, r, f);
 
-                p.art(zedGraphControl1);
+                label1.Text = "Min x = " + Convert.ToString(minp.x);
+                label2.Text = "Min z = " + Convert.ToString(minp.z);
+                label8.Text = "n = " + Convert.ToString(minp.k);
+                label14.Text = "ee = " + Convert.ToString(minp.ee);
+            }
+
+            if (radioButton3.Checked)
+            {
+                AGP metod = new Scan();
+
+                MinPoint minp = metod.minSearch(p, a, b, ee, n, r, f);
 
                 label1.Text = "Min x = " + Convert.ToString(minp.x);
                 label2.Text = "Min z = " + Convert.ToString(minp.z);
@@ -66,47 +74,21 @@ namespace SPPR
                 label14.Text = "ee = " + Convert.ToString(minp.ee);
             }
 
+            p.art(zedGraphControl1);
+
             PointPairList list_zz = new PointPairList();
-            PointPairList list_xx = new PointPairList();
 
             double h = (b - a) / (double)n;
-            double minx = a, minz = f(a);
 
-            list_zz.Add(minx, minz);
-            list_xx.Add(minx, 0);
-
-            for (int i = 1; i < n - 1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
                 double x = a + i * h;
                 double z = f(x);
 
                 list_zz.Add(x, z);
-                list_xx.Add(x, 0);
-
-                if (minz > z)
-                {
-                    minz = z;
-                    minx = x;
-                }
             }
 
             list_zz.Add(b, f(b));
-
-            if (radioButton3.Checked)
-            {
-                zedGraphControl1.GraphPane.CurveList.Clear();
-
-                LineItem Curve4 = zedGraphControl1.GraphPane.AddCurve("z", list_zz, Color.Blue, SymbolType.Star);
-                LineItem Curve5 = zedGraphControl1.GraphPane.AddCurve("x", list_xx, Color.Green, SymbolType.Plus);
-
-                zedGraphControl1.AxisChange();
-                zedGraphControl1.Invalidate();
-
-                label1.Text = "Min x = " + Convert.ToString(minx);
-                label2.Text = "Min z = " + Convert.ToString(minz);
-                label8.Text = "n = " + Convert.ToString(n);
-                label14.Text = "ee = " + Convert.ToString(h);
-            }
 
             LineItem Curve3 = zedGraphControl1.GraphPane.AddCurve("fun", list_zz, Color.Gray, SymbolType.None);
 

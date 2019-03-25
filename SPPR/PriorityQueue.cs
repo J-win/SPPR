@@ -39,14 +39,22 @@ namespace SPPR
                 itr = itr.next;
             }
 
-            if (itl == null)
+            if (head == null)
             {
                 head = new nodeint(i, null);
             }
             else
             {
-                nodeint d = new nodeint(i, itl.next);
-                itl.next = d;
+                if (itr == head)
+                {
+                    nodeint dd = new nodeint(i, head);
+                    head = dd;
+                }
+                else
+                {
+                    nodeint d = new nodeint(i, itl.next);
+                    itl.next = d;
+                }
             }
         }
 

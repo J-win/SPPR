@@ -41,34 +41,47 @@ namespace SPPR
                 itr = itr.next;
             }
 
-            if (itl == null)
+            if (head == null)
             {
                 head = new node(xk, null);
                 return head.data;
             }
             else
             {
-                node d = new node(xk, itl.next);
-                itl.next = d;
-                return itl.next.data;
+                if (itr == head)
+                {
+                    node dd = new node(xk, head);
+                    head = dd;
+                    return head.data;
+                }
+                else
+                {
+                    node d = new node(xk, itl.next);
+                    itl.next = d;
+                    return itl.next.data;
+                }
             }
         }
 
         public Point Min()
         {
             node itl = this.head;
-            Point min = itl.data;
+
+            double minx = itl.data.x;
+            double minz = itl.data.z;
 
             while (itl != null)
             {
-                if (min.z > itl.data.z)
+                if (minz > itl.data.z)
                 {
-                    min.x = itl.data.x;
-                    min.z = itl.data.z;
+                    minx = itl.data.x;
+                    minz = itl.data.z;
                 }
 
                 itl = itl.next;
             }
+
+            Point min = new Point(minx, minz);
 
             return min;
         }
@@ -121,7 +134,7 @@ namespace SPPR
             PointPairList list_x = new PointPairList();
             PointPairList list_z = new PointPairList();
 
-            node itl = this.head.next;
+            node itl = this.head;
 
             while (itl != null)
             {
